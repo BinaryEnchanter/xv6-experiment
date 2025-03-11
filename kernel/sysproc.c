@@ -91,3 +91,11 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+uint64
+sys_procnum(void)
+{
+  uint64 proc_num;
+  proc_num=procnum();
+  return proc_num;
+}
