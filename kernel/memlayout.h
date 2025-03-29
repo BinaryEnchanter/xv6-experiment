@@ -57,3 +57,15 @@
 //   TRAPFRAME (p->trapframe, used by the trampoline)
 //   TRAMPOLINE (the same page as in the kernel)
 #define TRAPFRAME (TRAMPOLINE - PGSIZE)
+
+// Kernel heap layout
+//          -------         PHYSTOP
+//          |first |
+//          | fit  |
+//          -------         HEAP_MIDDEL
+//          | slab |
+//          |      |
+//          -------         HEAP_START
+#define HEAP_SIZE (8*1024*1024)
+#define HEAP_START (PHYSTOP-HEAP_SIZE)
+#define HEAP_MIDDLE (PHYSTOP-HEAP_SIZE/2)

@@ -25,6 +25,11 @@ void            consputc(int);
 // exec.c
 int             exec(char*, char**);
 
+//heap.c
+void            heap_init(void);
+void            test_slab(void);
+uint64          sys_malloctest(void);
+
 // file.c
 struct file*    filealloc(void);
 void            fileclose(struct file*);

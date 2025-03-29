@@ -59,6 +59,13 @@
   "files.associations": {
     "proc.h": "c",
     "spinlock.h": "c",
-    "defs.h": "c"
-  }
+    "defs.h": "c",
+    "memlayout.h": "c",
+    "param.h": "c",
+    "types.h": "c",
+    "riscv.h": "c",
+    "rand.h": "c",
+    "user.h": "c"
+  },
+  "C_Cpp.errorSquiggles": "enabled"
 }
