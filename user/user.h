@@ -24,6 +24,9 @@ int sleep(int);
 int uptime(void);
 int procnum(void);
 int malloctest(char);
+int sem_init(int index, int init);
+int sem_wait(int index);
+int sem_signal(int index);
 // ulib.c
 int stat(const char*, struct stat*);
 char* strcpy(char*, const char*);

@@ -38,3 +38,6 @@ entry("sleep");
 entry("uptime");
 entry("procnum");
 entry("malloctest");
+entry("sem_init");
+entry("sem_wait");
+entry("sem_signal");

@@ -112,6 +112,12 @@ int             either_copyout(int user_dst, uint64 dst, void *src, uint64 len);
 int             either_copyin(void *dst, int user_src, uint64 src, uint64 len);
 void            procdump(void);
 int             procnum(void);
+
+// semaphore.c
+// void            sem_init(struct semaphore *s, int init);
+// void            sem_wait(struct semaphore *s);
+// void            sem_signal(struct semaphore *s);
+
 // swtch.S
 void            swtch(struct context*, struct context*);
 

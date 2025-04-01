@@ -1,11 +1,14 @@
 #include "types.h"
 #include "param.h"
 #include "memlayout.h"
-#include "riscv.h"
 #include "spinlock.h"
+#include "semaphore.h"
+#include "riscv.h"
+
 #include "proc.h"
 #include "syscall.h"
 #include "defs.h"
+
 
 // Fetch the uint64 at addr from the current process.
 int
@@ -103,6 +106,9 @@ extern uint64 sys_mkdir(void);
 extern uint64 sys_close(void);
 extern uint64 sys_procnum(void);
 extern uint64 sys_malloctest(void);
+extern uint64 sys_sem_init(void);
+extern uint64 sys_sem_wait(void);
+extern uint64 sys_sem_signal(void);
 
 // An array mapping syscall numbers from syscall.h
 // to the function that handles the system call.
@@ -129,7 +135,10 @@ static uint64 (*syscalls[])(void) = {
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
 [SYS_procnum] sys_procnum,
-[SYS_malloctest]  sys_malloctest,
+[SYS_malloctest] sys_malloctest,
+[SYS_sem_init] sys_sem_init,
+[SYS_sem_wait] sys_sem_wait,
+[SYS_sem_signal] sys_sem_signal,
 };
 
 void

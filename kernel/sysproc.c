@@ -5,6 +5,42 @@
 #include "memlayout.h"
 #include "spinlock.h"
 #include "proc.h"
+#include "semaphore.h"
+
+#define MAX_SEMAPHORES 16
+
+struct semaphore semaphores[MAX_SEMAPHORES];
+
+uint64 sys_sem_init(void) {
+    int index, init;
+    argint(0, &index);
+    argint(1, &init);
+
+    if (index < 0 || index >= MAX_SEMAPHORES) return -1;
+
+    sem_init(&semaphores[index], init);
+    return 0;
+}
+
+uint64 sys_sem_wait(void) {
+    int index;
+    argint(0, &index);
+
+    if (index < 0 || index >= MAX_SEMAPHORES) return -1;
+
+    sem_wait(&semaphores[index]);
+    return 0;
+}
+
+uint64 sys_sem_signal(void) {
+    int index;
+    argint(0, &index);
+
+    if (index < 0 || index >= MAX_SEMAPHORES) return -1;
+
+    sem_signal(&semaphores[index]);
+    return 0;
+}
 
 uint64
 sys_exit(void)

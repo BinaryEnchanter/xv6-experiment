@@ -18,6 +18,7 @@ main()
     printf("\n");
     kinit();         // physical page allocator
     heap_init();     // heap memory allocator
+    //semtable_init(); // global semaphore table
     //sys_malloctest();
     kvminit();       // create kernel page table
     kvminithart();   // turn on paging
